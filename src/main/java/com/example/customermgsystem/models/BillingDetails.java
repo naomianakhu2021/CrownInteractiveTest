@@ -13,7 +13,7 @@ public class BillingDetails {
     @Id
     @Column( nullable = false)
     private Long id;
-    @Column(unique=true)
+    @Column(unique=true,length = 10)
     private  String accountNumber ;
      private  String tarriff;
 
