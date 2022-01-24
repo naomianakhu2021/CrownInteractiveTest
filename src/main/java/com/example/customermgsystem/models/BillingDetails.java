@@ -1,23 +1,22 @@
 package com.example.customermgsystem.models;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class BillingDetails {
     @Id
-    @Column( nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(unique=true,length = 10)
     private  String accountNumber ;
      private  String tarriff;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn( name= "customer_id",nullable = false)
+     @OneToOne
      private Customer customer;
 }
